@@ -1,0 +1,59 @@
+﻿﻿
+@model IEnumerable<Medico>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            Listagem de Médicos
+                        </h3>
+                    </div>
+                    <div class="card-body">
+
+                        <a asp-controller="Medico" asp-action="Insert">
+                            Incluir novo
+
+                        </a>
+
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Id) </th>
+                                    <th>@Html.DisplayNameFor(model => model.Name) </th>
+                                    <th>@Html.DisplayNameFor(model => model.CRM) </th>
+                                    <th>@Html.DisplayNameFor(model => model.Released) </th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var m in Model)
+                                {
+                                    <tr>
+                                        <td>@m.Id</td>
+                                        <td>@m.Name</td>
+                                        <td>@m.CRM</td>
+                                        <td>@m.Released</td>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <a asp-controller="Medico" asp-action="Edit" asp-route-Id="@m.Id"> Editar</a>
+                                                </div>
+                                                <div class="col-6">
+                                                    <a asp-controller="Medico" asp-action="Delete" asp-route-Id="@m.Id"> Excluir</a>
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
